@@ -1,5 +1,7 @@
 # SandwichStream
 
+[![Travis CI Test Status](https://travis-ci.org/connrs/node-sandwich-stream.png)](https://travis-ci.org/connrs/node-sandwich-stream)
+
 While I'm not overjoyed about how performant the internals will operate, I wanted a readable stream that was ACTUALLY A READABLE STREAM. Not a streams1 stream masquerading as streams2. As soon as somebody writes a better concat stream as a readable stream with a nice simple API, this baby is going to develop some serious abandonment issues.
 
 ## Installation

@@ -109,7 +109,7 @@ test('Appends a footer at the end of a stream', function (t) {
 
 test('Separates each stream with content', function (t) {
   var ss = sandwichStream({
-    separator: ' ... '
+    separator: new Buffer(' ... ')
   });
   var pt = new PassThrough();
   var pt2 = new PassThrough();
@@ -126,7 +126,7 @@ test('Separates each stream with content', function (t) {
   });
   pt.end('1');
   pt2.end('2');
-  pt3.end('3');
+  pt3.end(new Buffer('3'));
 });
 
 test('Pipes', function (t) {
@@ -149,8 +149,29 @@ test('Pipes', function (t) {
     t.equal(Buffer.concat(output).toString(), '=====\n1\n2\n3\n-----');
     t.end();
   });
-  pt.end('1');
+  pt.end(new Buffer('1'));
   pt2.end('2');
   pt3.end('3');
   ss.pipe(pipeOut);
+});
+
+test('Throws error if you add a stream while streaming', function (t) {
+  var ss = sandwichStream();
+  var pt = new PassThrough();
+  var pt2 = new PassThrough();
+  var output = [];
+
+  ss.add(pt);
+  ss.on('data', output.push.bind(output));
+
+  pt.write('Content ');
+  process.nextTick(function () {
+    try {
+      ss.add(pt2);
+    }
+    catch (err) {
+      t.equal(err.message, 'SandwichStream error adding new stream while streaming');
+      t.end();
+    }
+  });
 });
