@@ -4,7 +4,7 @@
   },
   "name": "sandwich-stream",
   "description": "A readable stream that concatenates multiple streams with optional head, tail & join buffers",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "repository": {
     "type": "git",
     "url": "https://github.com/connrs/node-sandwich-stream.git"

@@ -175,3 +175,9 @@ test('Throws error if you add a stream while streaming', function (t) {
     }
   });
 });
+
+test('Exposes the SandwichStream class', function (t) {
+  var ss = sandwichStream();
+  t.ok(ss instanceof sandwichStream.SandwichStream);
+  t.end();
+});
