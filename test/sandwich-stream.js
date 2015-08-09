@@ -2,15 +2,6 @@ var test = require('tape');
 var sandwichStream = require('..');
 var PassThrough = require('stream').PassThrough;
 
-test('Emits error if no streams added', function (t) {
-  var ss = sandwichStream();
-  ss.on('error', function (err) {
-    t.equal(err.message, 'SandwichStream no streams added error');
-    t.end();
-  });
-  ss.read();
-});
-
 test('Emits content of 1 stream', function (t) {
   var ss = sandwichStream();
   var pt = new PassThrough();
