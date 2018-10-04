@@ -10,6 +10,7 @@
     "url": "https://github.com/connrs/node-sandwich-stream.git"
   },
   "main": "lib/sandwich-stream.js",
+  "types": "./index.d.ts",
   "scripts": {
     "test": "node_modules/tape/bin/tape test/*.js"
   },
