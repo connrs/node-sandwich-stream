@@ -6,29 +6,33 @@ While I'm not overjoyed about how performant the internals will operate, I wante
 
 ## Installation
 
-    npm install sandwich-stream
+```bash
+npm install sandwich-stream
+```
 
 ## Usage
 
-    var sandwichStream = require('sandwich-stream');
-    var ss = sandwichStream({
-      head: 'Thing at the top\n',
-      tail: '\nThing at the bottom',
-      separator: '\n ---- \n'
-    });
-    ss.add(aStreamIPreparedEarlier);
-    ss.add(anotherStreamIPreparedEarlier);
-    ss.add(aFurtherStreamIPreparedEarlier);
-    ss.pipe(process.stdout);
+```js
+const sandwichStream = require('sandwich-stream');
+const ss = sandwichStream({
+    head: 'Thing at the top\n',
+    tail: '\nThing at the bottom',
+    separator: '\n ---- \n'
+});
+ss.add(aStreamIPreparedEarlier);
+ss.add(anotherStreamIPreparedEarlier);
+ss.add(aFurtherStreamIPreparedEarlier);
+ss.pipe(process.stdout);
 
-    // The thing at the top
-    //  ---- 
-    // Stream1
-    //  ---- 
-    // Stream2
-    //  ---- 
-    // Stream3
-    // The thing at the bottom
+// The thing at the top
+//  ---- 
+// Stream1
+//  ---- 
+// Stream2
+//  ---- 
+// Stream3
+// The thing at the bottom
+```
 
 The `head` option takes a string/buffer and pushes the string before all other content
 
