@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for sandwich-stream.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="prettify.css" />
+    <link rel="stylesheet" href="base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="index.html">All files</a> sandwich-stream.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">29.27% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>12/41</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">28.13% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>9/32</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">8.33% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">27.5% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>11/40</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Readable, ReadableOptions } from 'stream';
+&nbsp;
+/**
+ * Sandwich Options that will configure parsed data
+ */
+export interface SandwichOptions extends ReadableOptions {
+    readonly head?: string | Buffer;
+    readonly tail?: string | Buffer;
+    readonly separator?: string | Buffer;
+}
+&nbsp;
+/**
+ * Handles Readable streams requests as concatenation through data handling as
+ * well adding tags it each begin, end and between of the streams
+ */
+export class SandwichStream extends Readable {
+    private streamsActive = false;
+    private streams = &lt;Readable[]&gt; [];
+    private head: string | Buffer | null;
+    private tail: string | Buffer | null;
+    private separator: string | Buffer | null;
+    private currentStream: Readable | null = null;
+&nbsp;
+    /**
+     * Initiates the SandwichStream, you can consider it also passing
+     * ReadableOptions to it
+     *
+     * @param head Pushes this content before all other content
+     * @param tail Pushes this content after all other data has been pushed
+     * @param separator Pushes this content between each stream
+     * @param remaining The other kind of options to be passed to Readable
+     * @example
+     * const ss = new SandwichStream({
+     *     head: 'This at the top\n',
+     *     tail: '\nThis at the bottom',
+     *     separator: '\n --- \n'
+     * });
+     */
+    constructor({ head, tail, separator, ...remaining }: SandwichOptions) {
+        super(remaining);
+&nbsp;
+        this.head = (null !== head &amp;&amp; undefined !== head) ? <span class="branch-0 cbranch-no" title="branch not covered" >head </span>: null;
+        this.tail = (null !== tail &amp;&amp; undefined !== tail) ? <span class="branch-0 cbranch-no" title="branch not covered" >tail </span>: null;
+        this.separator = (null !== separator &amp;&amp; undefined !== separator) ? <span class="branch-0 cbranch-no" title="branch not covered" >separator </span>: null;
+    }
+&nbsp;
+    /**
+     * Add a new Readable stream in the queue
+     *
+     * @param newStream The Readable stream
+     * @example
+     * sandwichStream.add(streamOne);
+     * sandwichStream.add(streamTwo);
+     * sandwichStream.add(streamThree);
+     * @throws An Error in case that this request was not accepted
+     */
+    public <span class="fstat-no" title="function not covered" >add</span>(newStream: Readable) {
+<span class="cstat-no" title="statement not covered" >        if (false === this.streamsActive) {</span>
+<span class="cstat-no" title="statement not covered" >            this.streams.push(newStream);</span>
+<span class="cstat-no" title="statement not covered" >            newStream.on('error', this.subStreamOnError.bind(this));</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >            throw new Error('SandwichStream error adding new stream while streaming');</span>
+        }
+    }
+&nbsp;
+    /**
+     * Works in a similar way from the Readable read, only that this one checks
+     * for whether or not a stream is already being handled
+     */
+    public <span class="fstat-no" title="function not covered" >read</span>() {
+<span class="cstat-no" title="statement not covered" >        if (false === this.streamsActive) {</span>
+<span class="cstat-no" title="statement not covered" >            this.streamsActive = true;</span>
+<span class="cstat-no" title="statement not covered" >            this.pushHead();</span>
+<span class="cstat-no" title="statement not covered" >            this.streamNextStream();</span>
+        }
+    }
+&nbsp;
+    /**
+     * Binds an error thrown from one of the streams being handled
+     *
+     * @param err Error to be bind
+     */
+    private <span class="fstat-no" title="function not covered" >subStreamOnError</span>(err: Error) {
+<span class="cstat-no" title="statement not covered" >        this.emit('error', err);</span>
+    }
+&nbsp;
+    /**
+     * Fetches the next stream to be handled
+     */
+    private <span class="fstat-no" title="function not covered" >streamNextStream</span>() {
+<span class="cstat-no" title="statement not covered" >        if (this.nextStream()) {</span>
+<span class="cstat-no" title="statement not covered" >            this.bindCurrentStreamEvents();</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >            this.pushTail();</span>
+<span class="cstat-no" title="statement not covered" >            this.push(null);</span>
+        }
+    }
+&nbsp;
+    /**
+     * Verifies whether or not the stream queue has ended
+     */
+    private <span class="fstat-no" title="function not covered" >nextStream</span>(): boolean {
+        const tmp = <span class="cstat-no" title="statement not covered" >this.streams.shift();</span>
+<span class="cstat-no" title="statement not covered" >        this.currentStream = (undefined !== tmp) ? tmp : null;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return null !== this.currentStream;</span>
+    }
+&nbsp;
+    /**
+     * Once the current stream starts to pass their data, this handles it in a
+     * less complicated way
+     */
+    private <span class="fstat-no" title="function not covered" >bindCurrentStreamEvents</span>() {
+        (&lt;Readable&gt; <span class="cstat-no" title="statement not covered" >this.currentStream).on('readable', this.currentStreamOnReadable.bind(this));</span>
+        (&lt;Readable&gt; <span class="cstat-no" title="statement not covered" >this.currentStream).on('end', this.currentStreamOnEnd.bind(this));</span>
+    }
+&nbsp;
+    /**
+     * Handles the data from a current stream once they are being streamed
+     */
+    private <span class="fstat-no" title="function not covered" >currentStreamOnReadable</span>() {
+        const tmp = (&lt;Readable&gt; <span class="cstat-no" title="statement not covered" >this.currentStream).read();</span>
+        const data = <span class="cstat-no" title="statement not covered" >(undefined !== tmp &amp;&amp; null !== tmp) ? tmp : '';</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this.push(data);</span>
+    }
+&nbsp;
+    /**
+     * Handles the tagging once a stream is finished
+     */
+    private <span class="fstat-no" title="function not covered" >currentStreamOnEnd</span>() {
+<span class="cstat-no" title="statement not covered" >        this.pushSeparator();</span>
+<span class="cstat-no" title="statement not covered" >        this.streamNextStream();</span>
+    }
+    /**
+     * Adds the head tag to the Sandwich Stream
+     */
+    private <span class="fstat-no" title="function not covered" >pushHead</span>() {
+<span class="cstat-no" title="statement not covered" >        if (null !== this.head) {</span>
+<span class="cstat-no" title="statement not covered" >            this.push(this.head);</span>
+        }
+    }
+&nbsp;
+    /**
+     * Adds the separator tag to the Sandwich Stream
+     */
+    private <span class="fstat-no" title="function not covered" >pushSeparator</span>() {
+<span class="cstat-no" title="statement not covered" >        if (0 &lt; this.streams.length &amp;&amp; null !== this.separator) {</span>
+<span class="cstat-no" title="statement not covered" >            this.push(this.separator);</span>
+        }
+    }
+&nbsp;
+    /**
+     * Adds the tail tag to the Sandwich Stream
+     */
+    private <span class="fstat-no" title="function not covered" >pushTail</span>() {
+<span class="cstat-no" title="statement not covered" >        if (null !== this.tail) {</span>
+<span class="cstat-no" title="statement not covered" >            this.push(this.tail);</span>
+        }
+    }
+}
+&nbsp;
+export default SandwichStream;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Oct 18 2018 16:15:19 GMT-0300 (Brasilia Standard Time)
+</div>
+</div>
+<script src="prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="sorter.js"></script>
+</body>
+</html>

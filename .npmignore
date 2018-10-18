@@ -1,3 +1,9 @@
-test/
+ci/
+coverage/
 node_modules/
+src/
 .travis.yml
+jest.config.json
+package-lock.json
+tsconfig.json
+tslint.json

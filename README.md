@@ -5,15 +5,15 @@
 While I'm not overjoyed about how performant the internals will operate, I wanted a readable stream that was ACTUALLY A READABLE STREAM. Not a streams1 stream masquerading as streams2. As soon as somebody writes a better concat stream as a readable stream with a nice simple API, this baby is going to develop some serious abandonment issues.
 
 ## Installation
-
 ```bash
-npm install sandwich-stream
+npm install sandwich-stream --save
 ```
 
 ## Usage
-
-```js
-const sandwichStream = require('sandwich-stream');
+```typescript
+import { SandwichStream } from 'sandwich-stream';
+// OR EVEN:
+// const sandwichStream = require('sandwich-stream');
 const ss = sandwichStream({
     head: 'Thing at the top\n',
     tail: '\nThing at the bottom',
