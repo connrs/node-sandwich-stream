@@ -11,6 +11,13 @@
   },
   "main": "./dist/sandwich-stream.js",
   "types": "./dist/sandwich-stream.d.ts",
+  "keywords": [
+    "stream",
+    "sandwich",
+    "readable",
+    "typescript",
+    "concatenation"    
+  ],
   "scripts": {
     "build": "webpack",
     "test": "npm run jest",
@@ -46,7 +53,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm test",
+      "pre-push": "npm run build && npm test",
       "pre-commit": "npm run lint && npm run docs"
     }
   }
