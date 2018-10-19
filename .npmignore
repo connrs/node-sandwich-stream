@@ -1,9 +1,13 @@
 ci/
 coverage/
+docs/
 node_modules/
 src/
+_config.yml
+.gitignore
 .travis.yml
 jest.config.json
 package-lock.json
 tsconfig.json
 tslint.json
+webpack.config.ts
