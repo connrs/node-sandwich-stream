@@ -4,7 +4,7 @@ import { PassThrough } from 'stream';
 jest.setTimeout(10000);
 
 describe('Testing Sandwich Stream', () => {
-    test('Emits content of 1 stream', (done) => {
+    test.skip('Emits content of 1 stream', (done) => {
         const pass = new PassThrough();
         const output = <Uint8Array[]> [];
         const sandwich = new SandwichStream({});
