@@ -54,25 +54,29 @@ export class SandwichStream extends Readable {
      * sandwichStream.add(streamThree);
      * @throws An Error in case that this request was not accepted
      */
-    public add(newStream: Readable) {
+    public add(newStream: Readable): SandwichStream {
         if (false === this.streamsActive) {
             this.streams.push(newStream);
             newStream.on('error', this.subStreamOnError.bind(this));
         } else {
             throw new Error('SandwichStream error adding new stream while streaming');
         }
+
+        return this;
     }
 
     /**
      * Works in a similar way from the Readable read, only that this one checks
      * for whether or not a stream is already being handled
      */
-    public read() {
+    public read(): SandwichStream {
         if (false === this.streamsActive) {
             this.streamsActive = true;
             this.pushHead();
             this.streamNextStream();
         }
+
+        return this;
     }
 
     /**
@@ -80,20 +84,24 @@ export class SandwichStream extends Readable {
      *
      * @param err Error to be bind
      */
-    private subStreamOnError(err: Error) {
+    private subStreamOnError(err: Error): SandwichStream {
         this.emit('error', err);
+
+        return this;
     }
 
     /**
      * Fetches the next stream to be handled
      */
-    private streamNextStream() {
-        if (this.nextStream()) {
+    private streamNextStream(): SandwichStream {
+        if (true === this.nextStream()) {
             this.bindCurrentStreamEvents();
         } else {
             this.pushTail();
             this.push(null);
         }
+
+        return this;
     }
 
     /**
@@ -110,53 +118,65 @@ export class SandwichStream extends Readable {
      * Once the current stream starts to pass their data, this handles it in a
      * less complicated way
      */
-    private bindCurrentStreamEvents() {
+    private bindCurrentStreamEvents(): SandwichStream {
         (<Readable> this.currentStream).on('readable', this.currentStreamOnReadable.bind(this));
         (<Readable> this.currentStream).on('end', this.currentStreamOnEnd.bind(this));
+
+        return this;
     }
 
     /**
      * Handles the data from a current stream once they are being streamed
      */
-    private currentStreamOnReadable() {
+    private currentStreamOnReadable(): SandwichStream {
         const tmp = (<Readable> this.currentStream).read();
         const data = (undefined !== tmp && null !== tmp) ? tmp : '';
 
         this.push(data);
+
+        return this;
     }
 
     /**
      * Handles the tagging once a stream is finished
      */
-    private currentStreamOnEnd() {
+    private currentStreamOnEnd(): SandwichStream {
         this.pushSeparator();
         this.streamNextStream();
+
+        return this;
     }
     /**
      * Adds the head tag to the Sandwich Stream
      */
-    private pushHead() {
+    private pushHead(): SandwichStream {
         if (null !== this.head) {
             this.push(this.head);
         }
+
+        return this;
     }
 
     /**
      * Adds the separator tag to the Sandwich Stream
      */
-    private pushSeparator() {
+    private pushSeparator(): SandwichStream {
         if (0 < this.streams.length && null !== this.separator) {
             this.push(this.separator);
         }
+
+        return this;
     }
 
     /**
      * Adds the tail tag to the Sandwich Stream
      */
-    private pushTail() {
+    private pushTail(): SandwichStream {
         if (null !== this.tail) {
             this.push(this.tail);
         }
+
+        return this;
     }
 }
 
