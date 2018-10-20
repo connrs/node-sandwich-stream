@@ -290,9 +290,39 @@ describe('Testing with two streams', () => {
             });
         });
     });
+});
 
-    test.skip('Without setting enconding and setting two concurrent streams', async () => {
-        // Need to implement here
+describe('Concurrent streams', () => {
+    const output = <Uint8Array[]>[];
+    const passOne = new PassThrough();
+    const passTwo = new PassThrough();
+    const sandwich = new SandwichStream({});
+
+    beforeAll(() => {
+        passOne.write(testString);
+        passTwo.write(testString);
+
+        sandwich.add(passOne)
+                .on('data', (data: Uint8Array) => {
+                    output.push(data);
+                    sandwich.add(passTwo);
+                });
+    });
+
+    test('Without setting enconding and setting two concurrent streams', (done) => {
+        expect.assertions(1);
+
+        sandwich.add(passTwo)
+                .on('error', console.error)
+                .on('uncaughtException', console.error)
+                .on('end', () => {
+                    expect(Buffer.concat(output).toString()).toMatch(`${testString}${testString}`);
+
+                    done();
+                });
+
+        passOne.end();
+        passTwo.end();
     });
 });
 

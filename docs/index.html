@@ -82,11 +82,13 @@
 				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { SandwichStream } <span class="hljs-keyword">from</span> <span class="hljs-string">'sandwich-stream'</span>;
 <span class="hljs-comment">// OR EVEN:</span>
 <span class="hljs-comment">// const SandwichStream = require('sandwich-stream');</span>
+
 <span class="hljs-keyword">const</span> sandwich = SandwichStream({
     head: <span class="hljs-string">'Thing at the top\n'</span>,
     tail: <span class="hljs-string">'\nThing at the bottom'</span>,
     separator: <span class="hljs-string">'\n ---- \n'</span>
 });
+
 sandwich.add(aStreamIPreparedEarlier)
         .add(anotherStreamIPreparedEarlier)
         .add(aFurtherStreamIPreparedEarlier)

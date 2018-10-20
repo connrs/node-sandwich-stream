@@ -53,3 +53,6 @@ sandwich.add(aStreamIPreparedEarlier)
 
 ## API
 Too add a stream use the **.add** method: `sandwich.add(streamVariable);`
+
+## More
+Wanna known more about Node Streams? Read [this](https://medium.freecodecamp.org/node-js-streams-everything-you-need-to-know-c9141306be93).
