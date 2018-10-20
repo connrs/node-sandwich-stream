@@ -65,23 +65,32 @@
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
 				<h1 id="sandwichstream">SandwichStream</h1>
-				<p><a href="https://travis-ci.org/connrs/node-sandwich-stream"><img src="https://travis-ci.org/connrs/node-sandwich-stream.png" alt="Travis CI Test Status"></a></p>
+				<p><a href="https://www.npmjs.com/package/sandwich-stream"><img src="https://img.shields.io/npm/v/sandwich-stream.svg?style=flat-square" alt="npm"></a>
+					<a href="https://www.npmjs.com/package/sandwich-stream"><img src="https://img.shields.io/npm/dt/sandwich-stream.svg?style=flat-square" alt="npm"></a>
+					<a href="https://travis-ci.org/connrs/node-sandwich-stream"><img src="https://img.shields.io/travis/connrs/node-sandwich-stream.svg?style=flat-square" alt="Travis CI"></a>
+					<a href="https://codecov.io/gh/connrs/node-sandwich-stream"><img src="https://img.shields.io/codecov/c/github/connrs/node-sandwich-stream.svg?style=flat-square" alt="codecov"></a>
+					<a href="https://www.codacy.com/project/connrs/node-sandwich-stream/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=connrs/node-sandwich-stream&amp;utm_campaign=Badge_Grade_Dashboard"><img src="https://img.shields.io/codacy/grade/6d64b00364bf413980280bd4e55d6115.svg?style=flat-square" alt="Codacy Badge"></a>
+					<a href="https://codeclimate.com/github/connrs/node-sandwich-stream/master/package.json"><img src="https://david-dm.org/connrs/node-sandwich-stream.svg?style=flat-square" alt="Dependencies"></a>
+					<a href="https://snyk.io/test/github/connrs/node-sandwich-stream?targetFile=package.json"><img src="https://snyk.io/test/github/connrs/node-sandwich-stream/badge.svg?style=flat-square&targetFile=package.json" alt="Known Vulnerabilities"></a>
+				<a href="https://codeclimate.com/github/connrs/node-sandwich-stream/maintainability"><img src="https://api.codeclimate.com/v1/badges/a6a00d50601938edfdad/maintainability" alt="Maintainability"></a></p>
+				<h2 id="about">About</h2>
 				<p>While I&#39;m not overjoyed about how performant the internals will operate, I wanted a readable stream that was ACTUALLY A READABLE STREAM. Not a streams1 stream masquerading as streams2. As soon as somebody writes a better concat stream as a readable stream with a nice simple API, this baby is going to develop some serious abandonment issues.</p>
 				<h2 id="installation">Installation</h2>
 				<pre><code class="language-bash">npm install sandwich-stream --save</code></pre>
+				<p><strong>note</strong>: this code was made using it <a href="https://www.typescriptlang.org/">TypeScript</a>, and its typings are linked in <a href="./package.json">package.json</a>, so there&#39;s no need of installing <em>@types/sandwich-stream</em> or anything related. </p>
 				<h2 id="usage">Usage</h2>
 				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { SandwichStream } <span class="hljs-keyword">from</span> <span class="hljs-string">'sandwich-stream'</span>;
 <span class="hljs-comment">// OR EVEN:</span>
-<span class="hljs-comment">// const sandwichStream = require('sandwich-stream');</span>
-<span class="hljs-keyword">const</span> ss = sandwichStream({
+<span class="hljs-comment">// const SandwichStream = require('sandwich-stream');</span>
+<span class="hljs-keyword">const</span> sandwich = SandwichStream({
     head: <span class="hljs-string">'Thing at the top\n'</span>,
     tail: <span class="hljs-string">'\nThing at the bottom'</span>,
     separator: <span class="hljs-string">'\n ---- \n'</span>
 });
-ss.add(aStreamIPreparedEarlier);
-ss.add(anotherStreamIPreparedEarlier);
-ss.add(aFurtherStreamIPreparedEarlier);
-ss.pipe(process.stdout);
+sandwich.add(aStreamIPreparedEarlier)
+        .add(anotherStreamIPreparedEarlier)
+        .add(aFurtherStreamIPreparedEarlier)
+        .pipe(process.stdout);
 
 <span class="hljs-comment">// The thing at the top</span>
 <span class="hljs-comment">//  ---- </span>
@@ -91,10 +100,15 @@ ss.pipe(process.stdout);
 <span class="hljs-comment">//  ---- </span>
 <span class="hljs-comment">// Stream3</span>
 <span class="hljs-comment">// The thing at the bottom</span></code></pre>
-				<p>The <code>head</code> option takes a string/buffer and pushes the string before all other content</p>
-				<p>The <code>foot</code> option takes a string/buffer and pushes the string after all other data has been pushed</p>
-				<p>The <code>separator</code> option pushes a string/buffer between each stream</p>
-				<p>Too add a stream use the .add method: <code>ss.add(streamVariable);</code></p>
+				<h2 id="configuration-options">Configuration Options</h2>
+				<ul>
+					<li><code>head</code> option takes a string/buffer and pushes the string before all other content</li>
+					<li><code>foot</code> option takes a string/buffer and pushes the string after all other data has been pushed</li>
+					<li><code>separator</code> option pushes a string/buffer between each stream</li>
+					<li><a href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/be662c475da091788139b486a55708f02e2880b6/types/node/index.d.ts#L6485">Readable Options</a> can also be passed through.</li>
+				</ul>
+				<h2 id="api">API</h2>
+				<p>Too add a stream use the <strong>.add</strong> method: <code>sandwich.add(streamVariable);</code></p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">

@@ -16,6 +16,7 @@ export interface SandwichOptions extends ReadableOptions {
 export class SandwichStream extends Readable {
     private streamsActive = false;
     private streams = <Readable[]> [];
+    private newStreams = <Readable[]>[];
     private head: string | Buffer | null;
     private tail: string | Buffer | null;
     private separator: string | Buffer | null;
@@ -60,7 +61,7 @@ export class SandwichStream extends Readable {
             this.streams.push(newStream);
             newStream.on('error', this.subStreamOnError.bind(this));
         } else {
-            throw new Error('SandwichStream error adding new stream while streaming');
+            this.newStreams.push(newStream);
         }
 
         return this;
@@ -140,6 +141,8 @@ export class SandwichStream extends Readable {
      */
     private currentStreamOnEnd(): void {
         this.pushSeparator();
+        this.streams.concat(this.newStreams);
+        this.newStreams = [];
         this.streamNextStream();
     }
     /**

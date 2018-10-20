@@ -290,13 +290,16 @@ describe('Testing with two streams', () => {
             });
         });
     });
+
+    test.skip('Without setting enconding and setting two concurrent streams', async () => {
+        // Need to implement here
+    });
 });
 
 describe('Errors', () => {
-    const pass = new PassThrough();
-    const sandwich = new SandwichStream({});
-
     test('Writing after ending PassThrough', async (done) => {
+        const pass = new PassThrough();
+        const sandwich = new SandwichStream({});
         let output = '';
 
         expect.assertions(2);
@@ -318,6 +321,4 @@ describe('Errors', () => {
         pass.end();
         pass.write(testString);
     });
-
-    test('Emitted error while adding new stream while streaming', () => expect(() => sandwich.add(pass)).toThrow());
 });

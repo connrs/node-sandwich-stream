@@ -24,11 +24,13 @@ npm install sandwich-stream --save
 import { SandwichStream } from 'sandwich-stream';
 // OR EVEN:
 // const SandwichStream = require('sandwich-stream');
+
 const sandwich = SandwichStream({
     head: 'Thing at the top\n',
     tail: '\nThing at the bottom',
     separator: '\n ---- \n'
 });
+
 sandwich.add(aStreamIPreparedEarlier)
         .add(anotherStreamIPreparedEarlier)
         .add(aFurtherStreamIPreparedEarlier)
