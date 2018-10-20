@@ -5,6 +5,7 @@ node_modules/
 src/
 _config.yml
 .gitignore
+.snyk
 .travis.yml
 jest.config.json
 package-lock.json

@@ -16,11 +16,11 @@
     "sandwich",
     "readable",
     "typescript",
-    "concatenation"    
+    "concatenation"
   ],
   "scripts": {
     "build": "webpack",
-    "test": "npm run jest",
+    "test": "snyk test && npm run jest",
     "docs": "typedoc --out ./docs/ ./src/",
     "lint": "tslint --config tslint.json --project .",
     "jest": "jest --config jest.config.json --ci --runInBand --detectOpenHandles --forceExit --no-cache"
@@ -40,7 +40,6 @@
     "husky": "^1.1.2",
     "jest": "^23.6.0",
     "snyk": "^1.104.1",
-    "tape": "~1.0.4",
     "ts-jest": "^23.10.4",
     "ts-loader": "^5.2.2",
     "ts-node": "^7.0.1",
