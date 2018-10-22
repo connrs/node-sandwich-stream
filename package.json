@@ -31,7 +31,17 @@
       "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
     }
   ],
-  "author": "connrs",
+  "author": {
+    "name": "connrs",
+    "url": "https://connrs.uk/"
+  },
+  "contributors": [
+    {
+      "name": "Fazendaaa",
+      "email": "lucas.carotta@outlook.com",
+      "url": "http://fazendaaa.me/"
+    }
+  ],
   "dependencies": {},
   "devDependencies": {
     "@types/jest": "^23.3.5",
