@@ -9,6 +9,7 @@ module.exports = {
     },
     output: {
         filename: 'sandwich-stream.js',
+        libraryTarget: 'commonjs',
         path: join(__dirname, 'dist')
     },
     resolve: {
@@ -31,10 +32,7 @@ module.exports = {
             {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
-                exclude: [
-                    /node_modules/,
-                    /tests/
-                ]
+                include: /src/
             }
         ]
     }
