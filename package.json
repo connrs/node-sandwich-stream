@@ -1,16 +1,18 @@
 {
+  "name": "sandwich-stream",
+  "version": "2.0.1",
+  "description": "A readable stream that concatenates multiple streams with optional head, tail & join buffers",
+  "license": "Apache-2.0",
   "engines": {
     "node": ">= 0.10"
   },
-  "name": "sandwich-stream",
-  "description": "A readable stream that concatenates multiple streams with optional head, tail & join buffers",
-  "version": "2.0.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/connrs/node-sandwich-stream.git"
   },
-  "main": "./dist/sandwich-stream.js",
-  "types": "./dist/sandwich-stream.d.ts",
+  "main": "dist/sandwich-stream",
+  "module": "dist/sandwich-stream.mjs",
+  "types": "dist/sandwich-stream.d.ts",
   "keywords": [
     "stream",
     "sandwich",
