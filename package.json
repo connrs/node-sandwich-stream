@@ -1,6 +1,6 @@
 {
   "name": "sandwich-stream",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A readable stream that concatenates multiple streams with optional head, tail & join buffers",
   "license": "Apache-2.0",
   "engines": {
