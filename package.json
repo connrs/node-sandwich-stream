@@ -1,16 +1,18 @@
 {
+  "name": "sandwich-stream",
+  "version": "2.0.2",
+  "description": "A readable stream that concatenates multiple streams with optional head, tail & join buffers",
+  "license": "Apache-2.0",
   "engines": {
     "node": ">= 0.10"
   },
-  "name": "sandwich-stream",
-  "description": "A readable stream that concatenates multiple streams with optional head, tail & join buffers",
-  "version": "2.0.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/connrs/node-sandwich-stream.git"
   },
-  "main": "./dist/sandwich-stream.js",
-  "types": "./dist/sandwich-stream.d.ts",
+  "main": "dist/sandwich-stream",
+  "module": "dist/sandwich-stream.mjs",
+  "types": "dist/sandwich-stream.d.ts",
   "keywords": [
     "stream",
     "sandwich",
@@ -19,7 +21,9 @@
     "concatenation"
   ],
   "scripts": {
-    "build": "webpack",
+    "rollup:build": "rollup -c",
+    "rollup:watch": "npm run rollup:build -- --watch",
+    "build": "npm run rollup:build",
     "test": "snyk test && npm run jest",
     "docs": "typedoc --out ./docs/ ./src/",
     "lint": "tslint --config tslint.json --project .",
@@ -49,16 +53,15 @@
     "codecov": "^3.1.0",
     "husky": "^1.1.2",
     "jest": "^23.6.0",
+    "rollup": "^0.66.6",
+    "rollup-plugin-typescript2": "^0.17.2",
     "snyk": "^1.104.1",
     "ts-jest": "^23.10.4",
-    "ts-loader": "^5.2.2",
     "ts-node": "^7.0.1",
     "tslint": "^5.11.0",
     "tslint-microsoft-contrib": "^5.2.1",
     "typedoc": "^0.13.0",
-    "typescript": "^3.1.3",
-    "webpack": "^4.21.0",
-    "webpack-cli": "^3.1.2"
+    "typescript": "^3.1.4"
   },
   "husky": {
     "hooks": {
